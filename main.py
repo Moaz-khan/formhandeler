@@ -12,14 +12,14 @@ st.title("Streamlit Form Receiver")
 
 query_params = st.query_params  # ✅ new method
 if query_params.get("name"):
-    name = query_params.get("name")[0]
-    email = query_params.get("email")[0]
-    phone = query_params.get("phone", [""])[0]
-    location = query_params.get("location", [""])[0]
-    interest = query_params.get("interest", [""])[0]
-    budget = query_params.get("budget", [""])[0]
-    message = query_params.get("message", [""])[0]
-    contact_time = query_params.get("contact_time", [""])[0]
+    name = query_params.get("name")
+    email = query_params.get("email")
+    phone = query_params.get("phone", [""])
+    location = query_params.get("location", [""])
+    interest = query_params.get("interest", [""])
+    budget = query_params.get("budget", [""])
+    message = query_params.get("message", [""])
+    contact_time = query_params.get("contact_time", [""])
 
     slack_data = {
         "text": f"*New Form Submission:*\n\n*Name:* {name}\n*Email:* {email}\n*Phone:* {phone}\n*Location:* {location}\n*Interest:* {interest}\n*Budget:* {budget}\n*Message:* {message}\n*Preferred Time:* {contact_time}"
