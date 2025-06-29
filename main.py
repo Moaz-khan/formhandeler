@@ -2,8 +2,7 @@ import streamlit as st
 import requests
 
 # Slack webhook URL from environment variable
-SLACK_WEBHOOK_URL = st.secrets["general"]["SLACK_WEBHOOK_URL"]
-
+SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
 # Title for dev check
 st.title("Streamlit Form Receiver")
 
