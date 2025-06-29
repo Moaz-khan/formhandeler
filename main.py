@@ -33,22 +33,8 @@ if query_params.get("name"):
     # ✅ Show thank you confirmation
     st.markdown("## 🎉 Thanks for contacting us!")
     st.markdown("We’ll get back to you as soon as possible.")
+    st.markdown("You can now close this tab and continue browsing our website.")
 
-    # 🔙 Back to main site using styled anchor tag
-    st.markdown("""
-        <a href="https://muhammad-maaz-six.vercel.app/" target="_self" style="
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #f97316;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-        ">
-            Go Back to Home
-        </a>
-    """, unsafe_allow_html=True)
 
 else:
     st.warning("No form data found in URL. Please try again.")
