@@ -1,14 +1,14 @@
 import streamlit as st
 import requests
 
-
 # Slack webhook URL from environment variable
 SLACK_WEBHOOK_URL = st.secrets["general"]["SLACK_WEBHOOK_URL"]
+
 # Title for dev check
 st.title("Streamlit Form Receiver")
 
-# Listen for POST requests via query params (simulate webhook)
-query_params = st.experimental_get_query_params()
+# ✅ Updated line: Get query parameters
+query_params = st.query_params
 
 if query_params.get("name"):
     # Parse values
