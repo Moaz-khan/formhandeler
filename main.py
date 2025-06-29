@@ -1,17 +1,18 @@
 import streamlit as st
 import requests
+import os
+from dotenv import load_dotenv
 
-# Slack webhook URL from environment variable
-SLACK_WEBHOOK_URL = st.secrets["general"]["SLACK_WEBHOOK_URL"]
+# 🟢 Load .env file
+load_dotenv()
 
-# Title for dev check
+# 🟠 Get Webhook from env
+SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")
+
 st.title("Streamlit Form Receiver")
 
-# ✅ Updated line: Get query parameters
-query_params = st.query_params
-
+query_params = st.query_params  # ✅ new method
 if query_params.get("name"):
-    # Parse values
     name = query_params.get("name")[0]
     email = query_params.get("email")[0]
     phone = query_params.get("phone", [""])[0]
@@ -21,12 +22,10 @@ if query_params.get("name"):
     message = query_params.get("message", [""])[0]
     contact_time = query_params.get("contact_time", [""])[0]
 
-    # Format Slack message
     slack_data = {
-        "text": f"*New Contact Form Submission:*\n\n*Name:* {name}\n*Email:* {email}\n*Phone:* {phone}\n*Location:* {location}\n*Interest:* {interest}\n*Budget:* {budget}\n*Message:* {message}\n*Preferred Time:* {contact_time}"
+        "text": f"*New Form Submission:*\n\n*Name:* {name}\n*Email:* {email}\n*Phone:* {phone}\n*Location:* {location}\n*Interest:* {interest}\n*Budget:* {budget}\n*Message:* {message}\n*Preferred Time:* {contact_time}"
     }
 
-    # Send to Slack
     response = requests.post(SLACK_WEBHOOK_URL, json=slack_data)
     
     if response.status_code == 200:
