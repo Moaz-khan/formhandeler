@@ -34,16 +34,20 @@ if query_params.get("name"):
     st.markdown("## 🎉 Thanks for contacting us!")
     st.markdown("We’ll get back to you as soon as possible.")
 
-    # 🔙 Back to main site using JavaScript redirect
+    # 🔙 Back to main site using styled anchor tag
     st.markdown("""
-        <script>
-            function goBackHome() {
-                window.location.href = "https://muhammad-maaz-six.vercel.app/";
-            }
-        </script>
-        <button onclick="goBackHome()" style="padding:10px 20px; background-color:#f97316; color:white; border:none; border-radius:5px; margin-top: 20px;">
+        <a href="https://muhammad-maaz-six.vercel.app/" target="_self" style="
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f97316;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+        ">
             Go Back to Home
-        </button>
+        </a>
     """, unsafe_allow_html=True)
 
 else:
