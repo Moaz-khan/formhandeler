@@ -13,14 +13,14 @@ query_params = st.query_params
 
 if query_params.get("name"):
     # Get all form fields from query params
-    name = query_params.get("name", [""])[0]
-    email = query_params.get("email", [""])[0]
-    phone = query_params.get("phone", [""])[0]
-    location = query_params.get("location", [""])[0]
-    interest = query_params.get("interest", [""])[0]
-    budget = query_params.get("budget", [""])[0]
-    message = query_params.get("message", [""])[0]
-    contact_time = query_params.get("contact_time", [""])[0]
+    name = query_params.get("name", [""])
+    email = query_params.get("email", [""])
+    phone = query_params.get("phone", [""])
+    location = query_params.get("location", [""])
+    interest = query_params.get("interest", [""])
+    budget = query_params.get("budget", [""])
+    message = query_params.get("message", [""])
+    contact_time = query_params.get("contact_time", [""])
 
     # Format the Slack message
     slack_data = {
