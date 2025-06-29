@@ -1,13 +1,12 @@
 import streamlit as st
 import requests
-import os
 from dotenv import load_dotenv
 
 # 🟢 Load .env file
 load_dotenv()
 
 # 🟠 Get Webhook from env
-SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")
+SLACK_WEBHOOK_URL = st.secrets["general"]["SLACK_WEBHOOK_URL"]
 
 st.title("Streamlit Form Receiver")
 
