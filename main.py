@@ -5,7 +5,7 @@ import requests
 SLACK_WEBHOOK_URL = st.secrets["general"]["SLACK_WEBHOOK_URL"]
 
 # ✅ Set Page Config
-st.set_page_config(page_title="Thank You", page_icon="✅")
+st.set_page_config(page_title="Thank You", page_icon="favicon.ico", layout="wide")
 st.title("")
 
 # ✅ Read query parameters
@@ -34,13 +34,17 @@ if query_params.get("name"):
     st.markdown("## 🎉 Thanks for contacting us!")
     st.markdown("We’ll get back to you as soon as possible.")
 
-    # 🔙 Back to main site button
-    st.markdown(
-        "<a href='https://muhammad-maaz-six.vercel.app/' target='_self'>"
-        "<button style='padding:10px 20px; background-color:#f97316; color:white; border:none; border-radius:5px;'>Go Back to Home</button>"
-        "</a>",
-        unsafe_allow_html=True
-    )
+    # 🔙 Back to main site using JavaScript redirect
+    st.markdown("""
+        <script>
+            function goBackHome() {
+                window.location.href = "https://muhammad-maaz-six.vercel.app/";
+            }
+        </script>
+        <button onclick="goBackHome()" style="padding:10px 20px; background-color:#f97316; color:white; border:none; border-radius:5px; margin-top: 20px;">
+            Go Back to Home
+        </button>
+    """, unsafe_allow_html=True)
 
 else:
     st.warning("No form data found in URL. Please try again.")
